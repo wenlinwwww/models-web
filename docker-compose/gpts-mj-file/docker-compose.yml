@@ -2,43 +2,43 @@ version: '3'
 
 services:
   gptweb:
-    container_name: chatgpt-web-midjourney-proxy
-    image: ydlhero/chatgpt-web-midjourney-proxy # 总是使用latest,更新时重新pull该tag镜像即可
+    container_name: chatgpt-web
+    image: linw123/chatgpt:latest # 总是使用latest,更新时重新pull该tag镜像即可
     ports:
-      - 6050:3002
+      - 5451:3002
     environment:
       TZ: Asia/Shanghai # 指定时区
       # 必选
-      OPENAI_API_KEY: sk-xxxx
+      OPENAI_API_KEY: hk-n3wl421000037484fae79ff73141721ea99e5c8cd880ea63
       # API接口地址，可选，设置 OPENAI_API_KEY 时可用
-      OPENAI_API_BASE_URL:
+      OPENAI_API_BASE_URL: https://api.openai-hk.com
       # 访问权限密钥，可选 注意修改
-      AUTH_SECRET_KEY: mygod
+      AUTH_SECRET_KEY: check
       # midjourney 服务器地址，可选 可用下面的 http://midjourney-proxy:8080
-      MJ_SERVER: http://midjourney-proxy:8080
+      MJ_SERVER: https://api.openai-hk.com
       # midjourney API密钥，可选
-      MJ_API_SECRET: mygod
+      MJ_API_SECRET: hk-n3wl421000037484fae79ff73141721ea99e5c8cd880ea63
       #API_UPLOADER 是否可以上传 1 可以其他都不可以，可选
       API_UPLOADER: 1
       #FILE_SERVER 文件服务器，可选 可以用下面的 http://fileserver:3012
-      FILE_SERVER: http://fileserver:3012
+      FILE_SERVER: http://up.openai-hk.com:3102/v1/upload
       #爆破：验证次数 注意: vercel 不支持 nginx 请设置  proxy_set_header   X-Forwarded-For  $remote_addr;
       AUTH_SECRET_ERROR_COUNT: 3
       #爆破：验证停留时间 单位分钟 注意: vercel 不支持
       AUTH_SECRET_ERROR_TIME: 10
 
   # midjourney服务 可选
-  midjourney-proxy:
-    image: novicezk/midjourney-proxy:2.5.5
-    restart: always
-    # ports:
-    #   - 6013:8080 #映射端口
-    environment:
-      TZ: Asia/Shanghai # 指定时区
-      mj.discord.guild-id: xxx # xxx 如何获取
-      mj.discord.channel-id: xxx
-      mj.discord.user-token: xxx
-      mj.api-secret: mygod # MJ_API_SECRET
+  # midjourney-proxy:
+  #   image: novicezk/midjourney-proxy:2.5.5
+  #   restart: always
+  #   # ports:
+  #   #   - 6013:8080 #映射端口
+  #   environment:
+  #     TZ: Asia/Shanghai # 指定时区
+  #     mj.discord.guild-id: xxx # xxx 如何获取
+  #     mj.discord.channel-id: xxx
+  #     mj.discord.user-token: xxx
+  #     mj.api-secret: mygod # MJ_API_SECRET
   
   #文件服务 可选
   fileserver:
