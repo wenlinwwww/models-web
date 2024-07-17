@@ -21,7 +21,7 @@ const config = ref({
 // ]
   model: ['gpt-4o', 'gpt-4-turbo', 'gpt-4-vision-preview', 'gpt-3.5-turbo', 'gpt-3.5-turbo-16k',
     'gpt-4-all', 'gpt-3.5-net', 'gemini-pro', 'gemini-pro-vision', 'gemini-pro-1.5',
-    'claude-3-haiku-20240307', 'claude-3-5-sonnet-20240620', 'suno-v3',
+    'claude-3-haiku-20240307', 'claude-3-5-sonnet-20240620', 'suno-v3', 'ERNIE-4.0-8K',
   ],
   maxToken: 4096,
 })

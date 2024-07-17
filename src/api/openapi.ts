@@ -30,6 +30,7 @@ export const KnowledgeCutOffDate: Record<string, string> = {
   'gemini-pro': '2023-12"',
   'gemini-pro-vision': '2023-12',
   'gemini-pro-1.5': '2024-04',
+  'ERNIE-4.0-8K': '2023-12',
 }
 
 const getUrl = (url: string) => {
