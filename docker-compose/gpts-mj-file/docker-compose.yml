@@ -9,9 +9,9 @@ services:
     environment:
       TZ: Asia/Shanghai # 指定时区
       # 必选
-      OPENAI_API_KEY: hk-n3wl421000037484fae79ff73141721ea99e5c8cd880ea63
+      OPENAI_API_KEY: sk-cxnJ56QLvoGVmeHj4b2f0aEe2455452a9917A72840B9Af11
       # API接口地址，可选，设置 OPENAI_API_KEY 时可用
-      OPENAI_API_BASE_URL: https://api.openai-hk.com
+      OPENAI_API_BASE_URL: https://vycjnile.cloud.sealos.io
       # 访问权限密钥，可选 注意修改
       AUTH_SECRET_KEY: check
       # midjourney 服务器地址，可选 可用下面的 http://midjourney-proxy:8080
