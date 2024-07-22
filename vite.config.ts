@@ -11,7 +11,7 @@ function setupPlugins(env: ImportMetaEnv): PluginOption[] {
     viteStaticCopy({
       targets: [
         {
-          src: `${path.resolve(__dirname, './src/static/mitf')}/[!.]*`, // 1️⃣
+          src: path.resolve(__dirname, './src/static/mitf') + '/[!.]*', // 1️⃣
           dest: './mitf/', // 2️⃣
         },
       ],
@@ -32,7 +32,7 @@ function setupPlugins(env: ImportMetaEnv): PluginOption[] {
 
 export default defineConfig((env) => {
   const viteEnv = loadEnv(env.mode, process.cwd()) as unknown as ImportMetaEnv
-  console.log('Loaded environment variables:', viteEnv)
+
   return {
     resolve: {
       alias: {
@@ -53,33 +53,33 @@ export default defineConfig((env) => {
         '/mjapi': {
           target: viteEnv.VITE_APP_API_BASE_URL,
           changeOrigin: true, // 允许跨域
-          // rewrite: path => path.replace('/api/', '/'),
+          //rewrite: path => path.replace('/api/', '/'),
         },
-        '/sunoapi': {
+         '/sunoapi': {
+          target: viteEnv.VITE_APP_API_BASE_URL,
+          changeOrigin: true, // 允许跨域  
+        },
+         '/uploads': {
           target: viteEnv.VITE_APP_API_BASE_URL,
           changeOrigin: true, // 允许跨域
-        },
-        '/uploads': {
-          target: viteEnv.VITE_APP_API_BASE_URL,
-          changeOrigin: true, // 允许跨域
-          // rewrite: path => path.replace('/api/', '/'),
-        },
+          //rewrite: path => path.replace('/api/', '/'),
+        }, 
         '/openapi': {
           target: viteEnv.VITE_APP_API_BASE_URL,
           changeOrigin: true, // 允许跨域
-          // rewrite: path => path.replace('/api/', '/'),
+          //rewrite: path => path.replace('/api/', '/'),
         },
         '/luma': {
           target: viteEnv.VITE_APP_API_BASE_URL,
           changeOrigin: true, // 允许跨域
-          // rewrite: path => path.replace('/api/', '/'),
-        },
+          //rewrite: path => path.replace('/api/', '/'),
+        }, 
         '/viggle': {
           target: viteEnv.VITE_APP_API_BASE_URL,
           changeOrigin: true, // 允许跨域
-          // rewrite: path => path.replace('/api/', '/'),
+          //rewrite: path => path.replace('/api/', '/'),
         },
-
+        
       },
     },
     build: {
