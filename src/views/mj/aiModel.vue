@@ -19,12 +19,20 @@ const config = ref({
 // ,'gpt-3.5-turbo-0301','gpt-3.5-turbo-0613','gpt-4-all','gpt-3.5-net','gemini-pro',"gemini-pro-vision",'gemini-pro-1.5'
 // ,'claude-3-sonnet-20240229','claude-3-opus-20240229','claude-3-haiku-20240307','claude-3-5-sonnet-20240620','suno-v3'
 // ]
-  model: ['gpt-4o', 'gpt-4-turbo', 'gpt-4-vision-preview', 'gpt-3.5-turbo', 'gpt-3.5-turbo-16k',
-    'gpt-4-all', 'gpt-3.5-net', 'gemini-pro', 'gemini-pro-vision', 'gemini-pro-1.5',
-    'claude-3-haiku-20240307', 'claude-3-5-sonnet-20240620', 'suno-v3', 'ERNIE-4.0-8K',
+  model: ['gpt-4o', 'gpt-4-turbo', 'gpt-4-vision-preview', 'gpt-3.5-turbo',
+    'gpt-4-all', 'gpt-3.5-net', 'ERNIE-4.0-8K', 'glm-4v', 'qwen-max', 'SparkDesk-v4.0',
+    // 'ep-20240717023150-mkhzh',
   ],
   maxToken: 4096,
 })
+
+const modelAliases: Record<string, string> = {
+  'ERNIE-4.0-8K': '文心一言',
+  'glm-4v': '智谱清言',
+  'qwen-max': '通义千问',
+  // 'ep-20240717023150-mkhzh': '豆包大模型',
+  'SparkDesk-v4.0': '星火认知',
+}
 const st = ref({ openMore: false })
 const voiceList = computed(() => {
   const rz = []
@@ -33,8 +41,12 @@ const voiceList = computed(() => {
 })
 const modellist = computed(() => { //
   let rz = []
-  for (const o of config.value.model)
-    rz.push({ label: o, value: o })
+  // for (const o of config.value.model)
+  //   rz.push({ label: o, value: o })
+  for (const o of config.value.model) {
+    const label = modelAliases[o] || o
+    rz.push({ label, value: o })
+  }
 
   if (gptConfigStore.myData.userModel) {
     const arr = gptConfigStore.myData.userModel.split(/[ ,]+/ig)

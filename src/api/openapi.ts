@@ -25,12 +25,16 @@ export const KnowledgeCutOffDate: Record<string, string> = {
   'gpt-4-turbo-preview': '2023-12',
   // 'claude-3-opus-20240229': '2023-08',
   // 'claude-3-sonnet-20240229': '2023-08',
-  'claude-3-haiku-20240307': '2023-08',
-  'claude-3-5-sonnet-20240620': '2024-04',
-  'gemini-pro': '2023-12"',
-  'gemini-pro-vision': '2023-12',
-  'gemini-pro-1.5': '2024-04',
-  'ERNIE-4.0-8K': '2023-12',
+  // 'claude-3-haiku-20240307': '2023-08',
+  // 'claude-3-5-sonnet-20240620': '2024-04',
+  // 'gemini-pro': '2023-12"',
+  // 'gemini-pro-vision': '2023-12',
+  // 'gemini-pro-1.5': '2024-04',
+  'ERNIE-4.0-8K': '2024-04',
+  'glm-4v': '2021-09',
+  'qwen-max': '2024-04',
+  // 'ep-20240717023150-mkhzh': '2024-04',
+  'SparkDesk-v4.0': '2023-12',
 }
 
 const getUrl = (url: string) => {
@@ -274,10 +278,20 @@ export const getSystemMessage = (uuid?: number) => {
     return sysTem
   const model = gptConfigStore.myData.model ? gptConfigStore.myData.model : 'gpt-3.5-turbo'
   let producer = 'You are ChatGPT, a large language model trained by OpenAI.'
-  if (model.includes('claude'))
-    producer = 'You are Claude, a large language model trained by Anthropic.'
-  if (model.includes('gemini'))
-    producer = 'You are Gemini, a large language model trained by Google.'
+  // if (model.includes('claude'))
+  //   producer = 'You are Claude, a large language model trained by Anthropic.'
+  // if (model.includes('gemini'))
+  //   producer = 'You are Gemini, a large language model trained by Google.'
+  if (model.includes('ERNIE'))
+    producer = 'You are ERNIE, a large language model trained by Baidu.'
+  if (model.includes('glm-4v'))
+    producer = 'You are glm, a large language model trained by Tsinghua University.'
+  if (model.includes('qwen'))
+    producer = 'You are qwen, a large language model trained by Alibaba.'
+  if (model.includes('ep'))
+    producer = 'You are doubao, a large language model trained by ByteDance.'
+  if (model.includes('SparkDesk'))
+    producer = 'You are SparkDesk, a large language model trained by iFLYTEK.'
     // 用户自定义系统
   if (homeStore.myData.session.systemMessage)
     producer = homeStore.myData.session.systemMessage
