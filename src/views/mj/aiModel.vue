@@ -42,8 +42,11 @@ const voiceList = computed(() => {
 })
 const modellist = computed(() => { //
   let rz = []
-  for (const o of config.value.model)
-    rz.push({ label: o, value: o })
+  for (const o of config.value.model) {
+    // rz.push({ label: o, value: o })
+    const label = modelAliases[o] || o
+    rz.push({ label, value: o })
+  }
 
   if (gptConfigStore.myData.userModel) {
     const arr = gptConfigStore.myData.userModel.split(/[ ,]+/ig)
