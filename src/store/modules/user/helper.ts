@@ -17,7 +17,7 @@ export function defaultSetting(): UserState {
     userInfo: {
       avatar: 'https://raw.githubusercontent.com/wenlinwwww/chatgpt-web-midjourney-proxy/main/src/assets/avatar.jpg',
       name: t('mjset.sysname'), // 'AI绘图',
-      description: '<a href="https://docs.qq.com/doc/DVklWTURKcXJOdWlq" class="text-blue-500" target="_blank" >使用手册</a>',
+      description: '<a href="https://docs.qq.com/doc/p/75f8b578cd31a19224b6092d7f670bb5cf44a542" class="text-blue-500" target="_blank" >使用手册</a>',
     },
   }
 }
