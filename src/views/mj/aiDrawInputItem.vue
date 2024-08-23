@@ -325,7 +325,7 @@ const selectFile3=  (input:any)=>{
         <n-select v-model:value="f[v.k]" :options="drawlocalized[v.k+'List']" size="small"  class="!w-[60%]" :clearable="true" />
 	</section>
     <!-- <template  >  </template> -->
-        <section class="mb-4 flex justify-between items-center"  >
+        <!-- <section class="mb-4 flex justify-between items-center"  >
         <div  >cw(0-100)</div>
         <NInputNumber :min="0" :max="100" v-model:value="f.cw" class="!w-[60%]" size="small" clearable placeholder="0-100 角色参考程度" />
         </section >
@@ -345,7 +345,7 @@ const selectFile3=  (input:any)=>{
                     <SvgIcon icon="ri:upload-line" class="cursor-pointer"  @click="uploader('cref')"></SvgIcon>
                 </template>
             </NInput>
-        </section>
+        </section> -->
    
     
     <div class="mb-1">

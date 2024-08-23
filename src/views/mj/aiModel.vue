@@ -19,8 +19,9 @@ const config = ref({
 // ,'gpt-3.5-turbo-0301','gpt-3.5-turbo-0613','gpt-4-all','gpt-3.5-net','gemini-pro',"gemini-pro-vision",'gemini-pro-1.5'
 // ,'claude-3-sonnet-20240229','claude-3-opus-20240229','claude-3-haiku-20240307','claude-3-5-sonnet-20240620','suno-v3'
 // ]
-  model: ['gpt-4o-mini', 'gpt-4o', 'gpt-4-turbo', 'gpt-4-vision-preview', 'gpt-3.5-turbo',
+  model: ['ERNIE-4.0-8K', 'glm-4v', 'qwen-max', 'SparkDesk-v4.0', 'gpt-4o-mini', 'gpt-4o', 'gpt-4-turbo', 'gpt-4-vision-preview', 'gpt-3.5-turbo',
     'gpt-4-all', 'gpt-3.5-net', 'ERNIE-4.0-8K', 'glm-4v', 'qwen-max', 'SparkDesk-v4.0',
+    // 'gpt-4-all', 'gpt-3.5-net', 'ERNIE-4.0-8K', 'glm-4v', 'qwen-max', 'SparkDesk-v4.0',
     // 'ep-20240717023150-mkhzh',
   ],
   maxToken: 4096,
@@ -138,14 +139,14 @@ onMounted(() => {
     <div><span class="text-red-500">*</span>  {{ $t('mjset.model') }}</div>
     <NSelect v-model:value="nGptStore.model" :options="modellist" size="small" filterable class="!w-[50%]" />
   </section>
-  <section class="mb-4 flex justify-between items-center">
+  <!-- <section class="mb-4 flex justify-between items-center">
     <NInput v-model:value="gptConfigStore.myData.userModel" :placeholder="$t('mjchat.modlePlaceholder')">
       <template #prefix>
         {{ $t('mjchat.myModle') }}
       </template>
     </NInput>
-  </section>
-  <section class=" flex justify-between items-center">
+  </section> -->
+  <!-- <section class=" flex justify-between items-center">
     <div>
       {{ $t('mjchat.historyCnt') }}
     </div>
@@ -184,9 +185,51 @@ onMounted(() => {
     <div>
       <NInput v-model:value="nGptStore.systemMessage" type="textarea" :placeholder=" $t('mjchat.rolePlaceholder') " :autosize="{ minRows: 3 }" />
     </div>
-  </section>
+  </section> -->
 
   <template v-if="st.openMore">
+    <section class=" flex justify-between items-center">
+      <div>
+        {{ $t('mjchat.historyCnt') }}
+      </div>
+      <div class=" flex justify-end items-center w-[80%] max-w-[240px]">
+        <div class=" w-[200px]">
+          <NSlider v-model:value="nGptStore.talkCount" :step="1" :max="50" />
+        </div>
+        <div class="w-[40px] text-right">
+          {{ nGptStore.talkCount }}
+        </div>
+      </div>
+    </section>
+    <div class="mb-4 text-[12px] text-gray-300 dark:text-gray-300/20">
+      {{ $t('mjchat.historyToken') }}
+    </div>
+
+    <section class=" flex justify-between items-center">
+      <div>
+        {{ $t('mjchat.historyTCnt') }}
+      </div>
+      <div class=" flex justify-end items-center w-[80%] max-w-[240px]">
+        <div class=" w-[200px]">
+          <NSlider v-model:value="nGptStore.max_tokens" :step="1" :max="config.maxToken" :min="1" />
+        </div>
+        <div class="w-[40px] text-right">
+          {{ nGptStore.max_tokens }}
+        </div>
+      </div>
+    </section>
+    <div class="mb-4 text-[12px] text-gray-300 dark:text-gray-300/20">
+      {{ $t('mjchat.historyTCntInfo') }}
+    </div>
+
+    <section class="mb-4">
+      <div>{{ $t('mjchat.role') }}</div>
+      <div>
+        <NInput v-model:value="nGptStore.systemMessage" type="textarea" :placeholder=" $t('mjchat.rolePlaceholder') " :autosize="{ minRows: 3 }" />
+      </div>
+    </section>
+    <!-- 把原本的上下文数量和回复数、角色设定放到more里面了 -->
+
     <section class=" flex justify-between items-center ">
       <div>{{ $t('mj.temperature') }}</div>
       <div class=" flex justify-end items-center w-[80%] max-w-[240px]">

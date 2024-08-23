@@ -21,13 +21,13 @@ const {isMobile}= useBasicLayout()
         <aiDrawInputItem @draw-sent="drawSent" @close="$emit('close')"></aiDrawInputItem>
 
     </n-tab-pane>
-    <n-tab-pane name="face" :tab="$t('mjchat.face')">
+    <!-- <n-tab-pane name="face" :tab="$t('mjchat.face')">
     <div class="p-4"><aiFace  /></div>
      
     </n-tab-pane>
     <n-tab-pane name="blend" :tab="$t('mjchat.blend')">
      <div class="p-4"><aiBlend  /></div>
-    </n-tab-pane>
+    </n-tab-pane> -->
     <n-tab-pane name="dall3" tab="Dall.E">
      <div class="p-4"><aiDall  /></div>
     </n-tab-pane>

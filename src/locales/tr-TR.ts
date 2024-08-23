@@ -206,6 +206,7 @@ export default {
     drawinfo: 'Midjourney Motoru ile Yapay Zeka Çizimi',
     gallery: 'Galeri',
     galleryInfo: 'Benim Galerim',
+    ppt: 'PPT',
   },
   mjchat: {
     loading: 'Resim Yükleniyor',

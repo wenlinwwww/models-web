@@ -107,6 +107,7 @@ export default {
     drawinfo: 'AI绘画 Midjourney引擎',
     gallery: '画廊',
     galleryInfo: '我的画廊',
+    ppt: 'PPT',
   },
   mjchat: {
     loading: '正在载入图片',
@@ -165,7 +166,8 @@ export default {
     img2textinfo: '不知如何写提示词？用图生文试试！<br/>提交图片，出提示词',
     traning: '翻译中...',
     imgcreate: '生成图片',
-    imginfo: '其他参数：  <li>1 --no 忽略 --no car 图中不出现车 </li><li>2 --seed 可先获取种子 --seed 123456 </li> <li>3 --chaos 10 混合(范围：0-100)</li> <li>4 --tile 碎片化 </li>  <li>5 --cw 0 只参考五官, 100 参考五官、头发、服装等  </li>',
+    // imginfo: '其他参数：  <li>1 --no 忽略 --no car 图中不出现车 </li><li>2 --seed 可先获取种子 --seed 123456 </li> <li>3 --chaos 10 混合(范围：0-100)</li> <li>4 --tile 碎片化 </li>  <li>5 --cw 0 只参考五官, 100 参考五官、头发、服装等  </li>',
+    imginfo: '注意事项：  <li>1 请务必记得选择图片比例</li><li>2 图片生成十分缓慢，请耐心等待</li><li>3 图片生成不稳定，有概率生成失败</li><li>4 为了图片准确性，可在“提示词”处详细描述图片内容</li>',
     tStyle: '风格',
     tView: '视角',
     tShot: '人物镜头',

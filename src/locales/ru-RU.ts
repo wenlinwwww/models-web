@@ -207,6 +207,7 @@ export default {
     drawinfo: 'Рисование с использованием искусственного интеллекта Midjourney',
     gallery: 'Галерея',
     galleryInfo: 'Моя галерея',
+    ppt: 'PPT',
   },
   mjchat: {
     loading: 'Идет загрузка изображения',

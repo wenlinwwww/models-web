@@ -203,6 +203,7 @@ export default {
     drawinfo: 'AI繪畫 Midjourney引擎',
     gallery: '畫廊',
     galleryInfo: '我的畫廊',
+    ppt: 'PPT',
   },
   mjchat: {
     loading: '正在載入圖片',

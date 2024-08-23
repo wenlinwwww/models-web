@@ -206,6 +206,7 @@ export default {
     drawinfo: 'Vẽ trí tuệ nhân tạo Midjourney',
     gallery: 'sách',
     galleryInfo: 'Phòng trưng bày của tôi',
+    ppt: 'PPT',
   },
   mjchat: {
     loading: 'Đang tải hình ảnh',

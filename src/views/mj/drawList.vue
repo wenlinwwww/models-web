@@ -61,38 +61,39 @@ async function onConversation() {
   if (loading.value)
     return
   if( !message.drawText && dataSources.value.length==0){
-      message.drawText=  t('mjset.sysname');//'AI绘图';
+      message.drawText=  t('mjset.sysname');//'AI assistant name';
   }
 //   if (!message || message.trim() === '')
 //     return
 
-  controller = new AbortController()
-  if( message.action && message.action=='face' ){
-    let promptMsg: Chat.Chat= getInitChat( t('mjchat.face')); //'换脸'
-    try{
-          let images= await localSaveAny( JSON.stringify( [message.data.sourceBase64,message.data.targetBase64 ] )  ) ;
-          mlog('key', images );
-          promptMsg.opt= {images:[images]}
-     }catch(e){
-         mlog('localSaveAny error',e);
-     }
-     addChat(  +uuid, promptMsg );
-     //return ;
+  // controller = new AbortController()
+  // if( message.action && message.action=='face' ){
+  //   let promptMsg: Chat.Chat= getInitChat( t('mjchat.face')); //'换脸'
+  //   try{
+  //         let images= await localSaveAny( JSON.stringify( [message.data.sourceBase64,message.data.targetBase64 ] )  ) ;
+  //         mlog('key', images );
+  //         promptMsg.opt= {images:[images]}
+  //    }catch(e){
+  //        mlog('localSaveAny error',e);
+  //    }
+  //    addChat(  +uuid, promptMsg );
+  //    //return ;
 
-  }else if( message.action && message.action=='blend' ){
-     // promptMsg.opt={  images: message.fileBase64 }
-     let promptMsg: Chat.Chat= getInitChat(t('mjchat.blend') );//'混图'
-     try{
-          let images= await localSaveAny( JSON.stringify( message.data.base64Array )  ) ;
-          mlog('key', images );
-          promptMsg.opt= {images:[images]}
-     }catch(e){
-         mlog('localSaveAny error',e);
-     }
-     addChat(  +uuid, promptMsg );
+  // }else if( message.action && message.action=='blend' ){
+  //    // promptMsg.opt={  images: message.fileBase64 }
+  //    let promptMsg: Chat.Chat= getInitChat(t('mjchat.blend') );//'混图'
+  //    try{
+  //         let images= await localSaveAny( JSON.stringify( message.data.base64Array )  ) ;
+  //         mlog('key', images );
+  //         promptMsg.opt= {images:[images]}
+  //    }catch(e){
+  //        mlog('localSaveAny error',e);
+  //    }
+  //    addChat(  +uuid, promptMsg );
 
     
-  }else if( message.action && ['gpt.dall-e-3','shorten'].indexOf(message.action) >-1   ){ //gpt.dall-e-3 //subTas
+  // }else if( message.action && ['gpt.dall-e-3','shorten'].indexOf(message.action) >-1   ){ //gpt.dall-e-3 //subTas
+  if( message.action && ['gpt.dall-e-3','shorten'].indexOf(message.action) >-1   ){ //gpt.dall-e-3 //subTas
     let promptMsg: Chat.Chat= getInitChat( message.data.prompt ); 
      addChat(  +uuid, promptMsg );
   }else if( message.drawText){

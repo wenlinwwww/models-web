@@ -205,6 +205,7 @@ export default {
     drawinfo: 'AI 그림 Midjourney 엔진',
     gallery: '갤러리',
     galleryInfo: '내 갤러리',
+    ppt: 'PPT',
   },
   mjchat: {
     loading: '이미지 로드 중',

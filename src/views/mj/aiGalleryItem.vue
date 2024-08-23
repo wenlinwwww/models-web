@@ -173,8 +173,8 @@ loadImg();
         <div class="p-3">
             <div class="line-clamp-2 text-[13px]"> 
                 <template v-if="item.prompt">{{ item.prompt }}</template>
-                <NTag v-else-if="item.action=='SWAP_FACE'" type="success" size="small" round v-html="$t('mjchat.face')"></NTag>
-                <NTag v-else-if="item.action=='BLEND'" type="success" size="small" round  v-html="$t('mjchat.blend')" ></NTag>
+                <!-- <NTag v-else-if="item.action=='SWAP_FACE'" type="success" size="small" round v-html="$t('mjchat.face')"></NTag> -->
+                <!-- <NTag v-else-if="item.action=='BLEND'" type="success" size="small" round  v-html="$t('mjchat.blend')" ></NTag> -->
                 <NTag v-else type="success" size="small" round >{{ item.action }}</NTag>
             </div>
             <div class="line-clamp-1 text-[12px] text-right">{{ new Date( item.time).toLocaleString() }}</div>

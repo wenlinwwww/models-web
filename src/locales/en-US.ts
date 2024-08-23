@@ -208,6 +208,7 @@ export default {
     drawinfo: 'AI Drawing with Midjourney Engine',
     gallery: 'Gallery',
     galleryInfo: 'My Gallery',
+    ppt: 'PPT',
   },
   mjchat: {
     loading: 'Loading Image',

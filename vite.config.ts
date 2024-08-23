@@ -79,6 +79,11 @@ export default defineConfig((env) => {
           changeOrigin: true, // 允许跨域
           //rewrite: path => path.replace('/api/', '/'),
         },
+        '/ppt': {
+        target: viteEnv.VITE_APP_API_BASE_URL,
+        changeOrigin: true, // 允许跨域
+        // rewrite: path => path.replace('/wenku', '/'), 
+      },
         
       },
     },
